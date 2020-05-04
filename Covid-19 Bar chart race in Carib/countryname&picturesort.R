@@ -10,7 +10,7 @@ countryname <- read_html("https://en.wikipedia.org/wiki/List_of_Caribbean_countr
   { .[[1]] } %>% 
   html_table() %>% 
   dplyr::mutate(Country = sub("\\(.*\\)", "", gsub("\\[.*\\]", "", `Country(or dependent territory)`))) %>% 
-  dplyr::select(Source) %>% 
+  dplyr::select(Country) %>% 
   distinct()
 
 countryname =gsub("^\\s|\\s$", "", countryname$Country) 
