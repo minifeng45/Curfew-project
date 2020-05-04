@@ -2,10 +2,10 @@
 library(readr)
 library(dplyr)
 library(lubridate)
-setwd("/Users/supermonk00/Desktop/academy/programing/R/Curfew-project/Covid-19 Bar chart race in Carib")
+library(devtools)
 
 # obtain the target countries list, flag information and code
-source("countryname&picturesort.R")
+devtools::source_url("https://raw.githubusercontent.com/supermonk00/Curfew-project/master/Covid-19%20Bar%20chart%20race%20in%20Carib/countryname%26picturesort.R")
 #insert data from European Centre for Disease Prevention and Control(ECDC)
 #https://www.ecdc.europa.eu/en
 
@@ -24,7 +24,7 @@ ECDCdataclean = function(
   
   source_case = function(geoID){
     carib = rawdata %>% 
-      filter(geoId == geoID)
+      dplyr::filter(geoId == geoID)
     return(carib)
   }
   countrycode_matrix = matrix(c(countrycode),nrow=1)

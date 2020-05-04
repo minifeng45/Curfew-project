@@ -2,14 +2,15 @@ library(rvest)
 library(git2r)
 library(dplyr)
 library(countrycode)
+library(stringr)
 
 # sort interested country list from wiki
 countryname <- read_html("https://en.wikipedia.org/wiki/List_of_Caribbean_countries_by_population") %>% 
   html_nodes("table") %>% 
   { .[[1]] } %>% 
   html_table() %>% 
-  mutate(Country = sub("\\(.*\\)", "", gsub("\\[.*\\]", "", `Country(or dependent territory)`))) %>% 
-  select(Country) %>% 
+  dplyr::mutate(Country = sub("\\(.*\\)", "", gsub("\\[.*\\]", "", `Country(or dependent territory)`))) %>% 
+  dplyr::select(Source) %>% 
   distinct()
 
 countryname =gsub("^\\s|\\s$", "", countryname$Country) 
