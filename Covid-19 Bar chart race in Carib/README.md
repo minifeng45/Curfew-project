@@ -6,14 +6,14 @@
 
                      Data processing
                      ---------------
-                         &#8595;
+                            ↓
           Sort out Caribean national name and flag
-                         &#8595;
+                            ↓
        Souce dataset of COVID-19 cases worldwide
     [from:European Centre for Disease Prevention and Control]
-                         &#8595;
+                            ↓
                       Clean dataset
-                         &#8595;
+                            ↓
       Upload data to Flourish Studio(https://flourish.studio)
-                         &#8595;
+                            ↓
           Modify header, footer, caption and labels
