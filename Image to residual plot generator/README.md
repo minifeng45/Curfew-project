@@ -5,6 +5,6 @@ Based on R code, you can import your picture using `pathin = "selfpofile.JPG"`, 
 
 ## Demo
 ##### A typical hemp leaf
-![](https://github.com/supermonk00/Curfew-project/blob/master/Image%20to%20residual%20plot%20generator/hempleaf.jpg)
+![](https://github.com/supermonk00/Curfew-project/blob/master/Image%20to%20residual%20plot%20generator/hempleaf.jpg | width=100)
 &#8593;
-![](https://github.com/supermonk00/Curfew-project/blob/master/Image%20to%20residual%20plot%20generator/trans.hempleaf.jpeg)
+![](https://github.com/supermonk00/Curfew-project/blob/master/Image%20to%20residual%20plot%20generator/trans.hempleaf.jpeg | width=100)
