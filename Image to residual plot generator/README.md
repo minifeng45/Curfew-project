@@ -8,8 +8,9 @@ Based on R code, you can import your picture using `pathin = "selfpofile.JPG"`, 
 <p align="center">
 <img src="https://github.com/supermonk00/Curfew-project/blob/master/Image%20to%20residual%20plot%20generator/hempleaf.jpg" width="300">
 </p>
- 
-           # &#8595                        
+
+
+&#8595                        
 
 <p align="center">
 <img src="https://github.com/supermonk00/Curfew-project/blob/master/Image%20to%20residual%20plot%20generator/trans.hempleaf.jpeg" width="500">
