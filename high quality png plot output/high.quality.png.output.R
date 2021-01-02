@@ -13,6 +13,6 @@ png.output = function(plot = p,
     bg = "transparent", # transparent background 
     family=family #Font change
   )
-  plot
-  dev.off()
+  return(plot)
 }
+dev.off()
