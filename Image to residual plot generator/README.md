@@ -5,6 +5,8 @@ Based on R code, you can import your picture using `pathin = "selfpofile.JPG"`, 
 
 ## Demo
 <p align="center">
+  
+  
 <font size="+2">A typical hemp leaf</font>
 
 <img src="https://github.com/supermonk00/Curfew-project/blob/master/Image%20to%20residual%20plot%20generator/hempleaf.jpg" width="300">
@@ -14,6 +16,8 @@ Based on R code, you can import your picture using `pathin = "selfpofile.JPG"`, 
 <p align="center"> &#8595 </p>                 
 
 <p align="center">
+  
 <font size="+2">A hemp leaf of residual plot</font>
+
 <img src="https://github.com/supermonk00/Curfew-project/blob/master/Image%20to%20residual%20plot%20generator/trans.hempleaf.jpeg" width="500">
 </p>
