@@ -1,0 +1,353 @@
+---
+title: "Homework 1: Exploratory Data Analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+**Q1: Identify a data set from Applied Predictive Models (APM) Chapter 1.4.**
+
+##### *Dataset: Grant Applicants*
+
+
+
+**Q2: Describe all of the fields in the data set.***<small>Note: you may group fields if it makes sense. If there are a very large number of fields, pick 15-20.*
+
+```{r}
+# Descriptive statistics function
+descriptive_sta = function(x){
+  if (class(x) != "numeric"){cat("It is not a numeric data")}else{
+  mean = mean(x,na.rm = T)
+  median = median(x,na.rm = T)
+  quantile = quantile(x,na.rm = T)
+  range = range(x,na.rm = T)
+  result = list(mean = mean,
+                median=median,
+                quantile=quantile,
+                range= range )
+  return(result)
+  }
+}
+# Load dataset
+load("myData.RData")
+```
+
+##### 0.Grant status 
+- if the applicant successes a grant application or not 
+- data type: double ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$Grant.Status)
+```
+- dependent variable
+
+##### 1.Sponsor Code
+- an ID used to represent different sponsors
+- data type: character ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$Sponsor.Code)
+```
+- independent variable
+
+##### 2.Grant Category Code
+- categorization of the sponsor (e.g. Australian competitive grants, cooperative research centre, industry)
+- data type: character ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$Grant.Category.Code)
+```
+- independent variable
+
+##### 3.Contract Value Band
+- the grant's value 
+- data type: character ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$Grant.Category.Code)
+```
+- independent variable
+
+##### 4.Start Date
+- the date the grant application was submitted
+- data type: character ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$Start.date)
+```
+- independent variable
+
+##### 5.RFCD Code
+- research fields, courses and disciplines classification ([see definitions](https://www.abs.gov.au/ausstats/abs@.nsf/66f306f503e529a5ca25697e0017661f/955FFA4EB1B23847CA25697E0018FB14?opendocument))
+- data type: character ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$RFCD.Code.1)
+```
+- independent variable
+
+##### 6. RFCD Percentage: 
+- if there are several RFCD codes that are relevant to a project
+- data type: integral ; units:%
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$RFCD.Percentage.1)
+```
+- independent variable
+
+##### 7. SEO Code
+- socio-economic objective classification ([see definitions](https://www.abs.gov.au/Ausstats/abs@.nsf/Latestproducts/CF7ADB06FA2DFD69CA2574180004CB82?opendocument))
+- data type: character ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$SEO.Code.1)
+```
+- independent variable
+
+##### 8. SEO Percentage
+- if there are several SEO codes that are relevant to a project
+- data type: integral ; units:%
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$SEO.Percentage.1)
+```
+- independent variable
+
+##### 9. Person ID
+- the investigator's unique ID
+- data type: character ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$Person.ID.1)
+```
+- independent variable
+
+##### 10. Role 
+- the investigator's role in the study
+- data type: character ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$Role.2)
+```
+- independent variable
+
+##### 11. Year of Birth
+- the investigator's year of birth (rounded to the nearest five year interval)
+- data type: character ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$Year.of.Birth.1)
+```
+- independent variable
+
+
+##### 12. Country of birth
+- the investigator's country of birth (often aggregated to by-continent)
+- data type: character ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$Country.of.Birth.1)
+```
+- independent variable
+
+##### 13. Home Language
+- the investigator's native language (classified into English and Other)
+- data type: character ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$Home.Language.1)
+```
+- independent variable
+
+##### 14. Dept No.
+- the investigator's department
+- data type: character ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$Dept.No..1)
+```
+- independent variable
+
+##### 15. Faculty No.
+- the investigator's faculty
+- data type: character ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$Faculty.No..1)
+```
+- independent variable
+
+##### 16. Grade Level
+- the investigator's level of seniority
+- data type: character ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$With.PHD.2)
+```
+- independent variable
+
+
+##### 17. No. of years in Uni at time of grant
+- the number of years the investigator had been at the University of Melbourne when the grant application was made
+- data type: ordinal ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$No..of.Years.in.Uni.at.Time.of.Grant.1)
+```
+- independent variable
+
+##### 18. Number of Successful Grant
+- the number of successful grant applications the investigator had made
+- data type: numeric ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$Number.of.Successful.Grant.1)
+```
+- independent variable
+
+##### 19. Number of Unsuccessful Grant
+- the number of unsuccessful grant applications the investigator had made
+- data type: numeric ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$Number.of.Unsuccessful.Grant.1)
+```
+- independent variable
+
+##### 20. A\*, number of A* journal articles
+- number of A* journal articles
+- data type: numeric ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$A..1)
+```
+- independent variable
+
+
+##### 21. A, number of A journal articles
+- number of A journal articles
+- data type: numeric ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$A.1)
+```
+- independent variable
+
+##### 22. B, number of B journal articles
+- number of B journal articles
+- data type: numeric ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$B.1)
+```
+- independent variable
+
+##### 23. C, number of C journal articles
+- number of C journal articles
+- data type: numeric ; units:x
+- summary statistics:
+```{r echo = FALSE}
+descriptive_sta(mydata$C.1)
+```
+- independent variable
+
+
+
+
+
+**Q3 Write a CoNVO statement for the dataset.**
+
+##### *Context*
+
+Applicants of the university have a wide range of features, but not all applicants can receive research grand. Grant applications generally possess some commons but important characteristics according to the applicants' documents. 
+
+
+
+##### *Needs*
+
+There are too much features (249) in the applicants' documents. It is hard to determine which features are important and which are not by going through all documents. 
+
+
+##### *Vision*
+
+All features will be tested by pairs plot with the dependent variable, Grant Status. Also when this research is finished, the three rather important variables will be defined and further used for regression. The result will base on causal diagram to avoid spurious relationship
+
+
+
+##### *Outcome*
+
+Through finding the important characteristics towards granting, the university can provide applicants with clear and precise criteria for granting. The unqualified applicants can decide by themselves to save their time and money if they lack of these important characteristics.
+
+
+
+**Q4 Create a pairs plot. Identify which independent variables seem to produce variation in the outcome variables. If there are more than 10 variables in the data set you should select (with justification) 10 variables to include in the pairs plot.**
+
+##### Pairs plot
+
+Variables: grant status, RFCD Percentage, SEO Percentage, Number of Successful Grant, Number of Unsuccessful Grant, and Number of A*, A, B, or C journal articles
+
+```{r pressure, echo=FALSE}
+pairs(mydata[,c(2,8,18,36,37,38,39,40,41,68)])
+```
+
+**Q5 Identify an outcome and three independent variables based on your CoNVO statement and the pairs plot.**
+
+1. Number of A* journal articles
+2. Number of Successful/Unsuccessful Grant
+3. RFCD Percentage
+
+**Q6 Explore the variables by applying at least five plot types.***<small>Note: the easy way to do this is to take from the five named plot types, but you may find more complex plots are more useful.*
+
+```{r plot}
+# graph package:ggplot 
+library(ggplot2)
+
+# boxplot 
+ggplot(mydata, aes(x = factor(Grant.Status),y = RFCD.Percentage.1))+
+  geom_boxplot(na.rm = T)+
+  labs(y ="RFCD.Percentage",x = "Grant.Status" )
+
+# bar chart
+library(tidyverse)
+mydata %>% group_by(Grant.Status)%>%
+  summarise(AA = mean(A..1,na.rm=T)) %>%
+              ggplot(., aes(x =factor(Grant.Status),y=(AA)))+
+  geom_bar(stat="identity")+
+  labs(x = "Grant Status", y = "number of A* journal articles")
+
+
+
+# histogram
+ggplot(mydata, aes(x =A.1))+
+  geom_histogram(bins = 30,na.rm = T)+
+  labs(x = "number of A* journal articles")
+
+# qqplot
+qqnorm(mydata$A..1, pch = 1, frame = FALSE,main = "Normal Q-Q Plot of number of A* journal articles")
+qqline(mydata$A..1, col = "steelblue", lwd = 2)
+
+# scatter plot
+
+ggplot(mydata, aes(x = factor(Grant.Status),
+                   y = Number.of.Unsuccessful.Grant.1))+
+  geom_point(position="jitter",na.rm = T)+
+  labs(x = "Grant.Status" , y ="Number of Unsuccessful Grant")
+
+ggplot(mydata, aes(x = factor(Grant.Status),
+                   y = Number.of.Successful.Grant.1))+
+  geom_point(position="jitter",na.rm = T)+
+  labs(x = "Grant.Status", y = "Number of Successful Grant")
+```
+
+**7.Suggest possible reasons for relationships between variables. Use causal diagrams in your discussion.**
+
+###### **Relationships between independent and dependent variables**
+
+For predicting grant application, the variables selected are relative to it at some extent. Number of A* journal articles shows the performance of applicants in previous studies, so with more A* journal articles record the students have high chance to be granted. Secondly, the former application result can give somewhat information of  qualification. Applicants proved by higher numbers of successful grants and low numbers of unsuccessful grants are prone to be grant in the next application. The jittering scatter plots illustrate the rationale trend with my assumption. Thirdly, RFCD percentage also has an impact on grant status. The boxplot shows the distribution of RFCD percentage, and it explains the applicants who possess the relative background has higher chance to be granted.
+
+###### **The distribution of variables**
+
+In addition to the relationship between independent and dependent variables. The distribution of a variable is also prominent. In Q-Q plot and histogram, the variable "Number of A* journal articles" has a right-skewed distribution which would need to be considered as using regression to verify the relationships. For example, if the data is not normal distribution, non-parametric analyses should be implemented rather than parametric analyses or should transform the distribution of the variable into normal.
+

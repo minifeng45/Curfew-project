@@ -26,7 +26,7 @@ countryname  = gsub("^\\s|\\s$", "", countryname$Country)
 # package citation: https://cran.r-project.org/web/packages/countrycode/countrycode.pdf
 library(countrycode)
 code = countrycode(c(countryname),
-            origin = 'country.name', destination = 'iso2c') %>%
+            origin = 'country.name', destination = 'iso3c') %>%
   toupper() #Captial letter to small letter
 
 
