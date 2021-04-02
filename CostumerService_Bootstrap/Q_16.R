@@ -30,11 +30,14 @@ for (i in 1:1000) {
   avr_timespend[i] = single_run(1000) #customer_number=1000, which means 1000 people want to use the service today
 }
 
-y = mean(avr_timespend)
-## bootstrap: sampling with replacement
-# sample 100 individuals from 1000
-sample_number = 10
-boot_result  = sample(avr_timespend, sample_number, replace = TRUE)
-MSE = sum((y - boot_result)^2)/sample_number
+## bootstrapping
+# Load the library
+library(boot)
 
+# Creating a function to pass into boot() function
+bootFunc <- function(data, i){
+  df <- data[i]
+  sum((mean(data) - df)^2)/length(df) #MSE
+}
 
+boot(avr_timespend , bootFunc, R = 100) #average time spend is put into bootstrap and resample for 100 times, calculating MSE in each
