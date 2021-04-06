@@ -30,7 +30,27 @@ for (i in 1:1000) {
   avr_timespend[i] = single_run(1000) #customer_number=1000, which means 1000 people want to use the service today
 }
 
-## bootstrapping
+## bootstrapping: hand-written
+
+y_actual = mean(avr_timespend)
+## bootstrap: sampling with replacement
+# resample 100 times with replacement
+residual= c()
+for (i in 1:100) { # resample 100 times 
+  y_pred  = sample(avr_timespend, 1, replace = TRUE)
+  residual[i] = (y_actual - y_pred) # calculate MSE
+}
+
+
+MSE = mean(residual^2)
+std_error = sd(residual^2)
+bias = mean(residual^2) - median(residual^2)
+
+Bootstrap_Statistics = list(MSE =MSE, Bias = bias, std_error = std_error)
+Bootstrap_Statistics
+
+
+## bootstrapping: package 
 # Load the library
 library(boot)
 
